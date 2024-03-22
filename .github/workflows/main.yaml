@@ -1,0 +1,20 @@
+name: Main Production CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'connect ssh'
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USERNAME}}
+          password: ${{secrets.PASSWORD}}
+          script: |
+            cd avito-quiz
+            git restore .
+            git pull
+#            docker compose --profile production up -d --build
