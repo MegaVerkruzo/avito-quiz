@@ -8,10 +8,22 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently \"yarn workspace @frontend/client dev\" \"yarn workspace @frontend/admin dev\"",
-    "build": "yarn workspaces run build"
+    "dev": "concurrently -c \"green,red\" -n client,admin \"yarn workspace @frontend/client dev --host\" \"yarn workspace @frontend/admin dev --host\"",
+    "dev:client": "yarn workspace @frontend/client dev",
+    "dev:admin": "yarn workspace @frontend/admin dev",
+    "build": "yarn workspaces run build",
+    "lint": "yarn lint:eslint && yarn lint:prettier",
+    "lint:fix": "yarn lint:eslint:fix && yarn lint:prettier:fix",
+    "lint:eslint": "yarn eslint .",
+    "lint:eslint:fix": "yarn eslint . --fix",
+    "lint:prettier": "yarn prettier . -c",
+    "lint:prettier:fix": "yarn prettier . -w"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "concurrently": "^8.2.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.1",
+    "prettier": "^3.2.5"
   }
 }

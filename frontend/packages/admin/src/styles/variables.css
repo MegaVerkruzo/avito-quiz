@@ -1,0 +1,28 @@
+:root {
+  --main-color: #fff;
+
+  --font-main: 'Inter', sans-serif;
+
+  --bg-color: #fcfcfc;
+  --bg-sidebar: #fbfcfe;
+  --secondary-color: #dedede;
+  --table-header: #f0f4f8;
+  --text-gray: #b2b2b2;
+
+  --bg-login: #49c8ff;
+  --active-tab: #b2e5fe;
+  --primary-color: #01aafe;
+  --primary-hover: #039ce7;
+  --primary-disabled: #80d4fe;
+  --primary-pressed: #0389cb;
+
+  --success-color: #4baa2a;
+
+  --light-gray: #cdd7e1;
+
+  --danger-color: #cf212e;
+  --disabled-danger: #e79096;
+  --pressed-danger: #af1d28;
+
+  --Checkbox-actionRadius: 50%;
+}
