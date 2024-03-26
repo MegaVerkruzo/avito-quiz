@@ -1,4 +1,4 @@
-FROM sample-docker-image AS build
+FROM gradle:7-jdk17 AS build
 WORKDIR /usr/app/
 COPY . ./
 RUN ./gradlew buildFatJar
