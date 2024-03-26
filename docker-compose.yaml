@@ -1,7 +1,7 @@
 version: "3"
 services:
   backend:
-    image: "sample-docker-image"
+    image: "scratch"
     restart: on-failure
     build:
       context: ./backend/
