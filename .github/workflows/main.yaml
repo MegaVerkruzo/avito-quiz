@@ -1,7 +1,7 @@
 name: Main Production CI
 
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
   main:
