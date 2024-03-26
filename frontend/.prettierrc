@@ -3,5 +3,27 @@
   "trailingComma": "all",
   "endOfLine": "lf",
   "singleQuote": true,
-  "semi": false
+  "semi": false,
+  "useTabs": false,
+  "arrowParens": "avoid",
+  "singleAttributePerLine": true,
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "^@/api/(.*)$",
+    "^@/services/(.*)$",
+    "^@/components/(.*)$",
+    "^@/pages/(.*)$",
+    "^@/constants/(.*)$",
+    "^@/config/(.*)$",
+    "^@/store/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/utils/(.*)$",
+    "^@/styles/(.*)$",
+    "^@/assets/(.*)$",
+    "^@/types/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }
