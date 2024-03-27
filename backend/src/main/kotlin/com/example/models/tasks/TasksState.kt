@@ -11,8 +11,9 @@ data class VisibleTask(
     val imagePath: String?
 )
 
+//@Serializable(with = FullTaskSerializer::class)
 @Serializable
-data class FullTask<out ANSWER_TYPE: Answer>(
+data class FullTask<ANSWER_TYPE>(
     val location: String,
     val imagePath: String?,
     val score: Int,
@@ -20,16 +21,33 @@ data class FullTask<out ANSWER_TYPE: Answer>(
     val htmlForIncorrectResponse: String,
     val htmlForIntroTask: String,
     val htmlForTask: String,
-    val answer: ANSWER_TYPE
+    val answer: ButtonAnswer
 )
 
-open class Answer
+
+//class FullTaskSerializer<ANSWER_TYPE>(private val dataSerializer: KSerializer<ANSWER_TYPE>
+//): KSerializer<FullTask<ANSWER_TYPE>> {
+//    override val descriptor: SerialDescriptor = dataSerializer.descriptor
+//    override fun deserialize(decoder: Decoder): FullTask<ANSWER_TYPE> = decoder.decodeStructure(descriptor) {
+//
+//        FullTask(
+//            dataSerializer.
+//            ,
+//            dataSerializer.deserialize(decoder))
+//    }
+//
+//    override fun serialize(encoder: Encoder, value: FullTask<ANSWER_TYPE>) {
+//        TODO("Not yet implemented")
+//    }
+//
+//
+//}
 
 @Serializable
 class TextFieldAnswer(
     val type: String,
     val options: String
-) : Answer()
+)
 
 @Serializable
 class ButtonAnswer(
@@ -37,4 +55,4 @@ class ButtonAnswer(
     val buttonsAmount: Int,
     val correctAnswerNumber: Int,
     val options: Array<String>
-) : Answer()
+)

@@ -23,7 +23,7 @@ repositories {
 
 tasks.withType<Jar> {
     manifest {
-        attributes["Main-Class"] = "com.example.MainKt"
+        attributes["Main-Class"] = "grunskii.ru.ApplicationKt"
     }
 }
 
