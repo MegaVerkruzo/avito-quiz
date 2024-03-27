@@ -1,6 +1,7 @@
 package com.example.plugins
 
 import com.example.models.ExceptionMessage
+import com.example.routes.achievementRouting
 import com.example.routes.authRouting
 import com.example.routes.excursionRouting
 import com.example.routes.tasksRouting
@@ -32,6 +33,7 @@ fun Application.configureRouting() {
             route("/api/v1") {
                 excursionRouting()
                 tasksRouting()
+                achievementRouting()
             }
         }
     }
