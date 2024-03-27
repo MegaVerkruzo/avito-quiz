@@ -33,6 +33,8 @@ fun Application.configureRouting() {
                 achievementRouting()
                 telegramNoticeRouting()
                 adminRouting()
+                settingsRouting()
+                usersRouting()
             }
         }
     }
