@@ -1,0 +1,91 @@
+version: "3"
+services:
+  backend:
+    image: "scratch"
+    restart: on-failure
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+#    env_file:
+#      - postgres/db.env
+    ports:
+      - "8080:8080"
+#    depends_on:
+#      - postgresSQL
+#    profiles:
+#      - production
+
+#  backendDev:
+#    image: "scratch-thing"
+#    restart: on-failure
+#    build:
+#      context: ./backend/
+#      dockerfile: Dockerfile.backend.dev
+#    env_file:
+#      - postgres/db.env
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - postgresSQL
+#    profiles:
+#      - development
+#
+#  admin:
+#    image: "scratch-image"
+#    restart: on-failure
+#    build:
+#      context: ./admin/
+#      dockerfile: Dockerfile.admin
+#    env_file:
+#      - postgres/db.env
+#    ports:
+#      - "8000:8000"
+#    depends_on:
+#      - postgresSQL
+#    profiles:
+#      - production
+#
+#  adminDev:
+#    image: "scratch-image-dev"
+#    restart: on-failure
+#    build:
+#      context: ./admin/
+#      dockerfile: Dockerfile.admin.dev
+#    env_file:
+#      - postgres/db.env
+#    ports:
+#      - "8000:8000"
+#    depends_on:
+#      - postgresSQL
+#    profiles:
+#      - development
+#
+#  postgresSQL:
+#    image: "postgres:15"
+#    restart: on-failure
+#    ports:
+#      - "5432:5432"
+#    env_file:
+#      - postgres/db.env
+#    volumes:
+#      - ./postgres/postgres-data:/var/lib/postgresql/data
+#
+#  reverse_proxy:
+#    build:
+#      context: ./front
+#      dockerfile: Dockerfile
+#    container_name: reverse_proxy
+#    ports:
+#      - 80:80
+#      - 443:443
+#    #      - 5432:5432
+#    #      - 2643:2643
+#    #    environment:
+#    #      - VITE_API_URL=https://blago2024.ru/api
+#    #    volumes:
+#    #      - ./etc-letsencrypt:/etc/letsencrypt
+#    depends_on:
+#      - backend
+#    restart: unless-stopped
+#    profiles:
+#      - production

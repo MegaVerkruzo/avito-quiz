@@ -1,7 +1,7 @@
 name: Main Production CI
 
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
   main:
@@ -17,4 +17,4 @@ jobs:
             cd avito-quiz
             git restore .
             git pull
-#            docker compose --profile production up -d --build
+            docker compose up -d --build
