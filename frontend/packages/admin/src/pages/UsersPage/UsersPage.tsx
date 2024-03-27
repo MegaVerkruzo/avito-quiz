@@ -1,21 +1,15 @@
-import {
-  Box,
-  Button,
-  Stack,
-  Switch,
-  ToggleButtonGroup,
-  Typography,
-} from '@mui/joy'
-import { PlusIcon, TrashIcon } from '@primer/octicons-react'
+import { Button, Stack, Switch, Typography } from '@mui/joy'
+import { TrashIcon } from '@primer/octicons-react'
 import { useNavigate } from 'react-router-dom'
 
 import { Dropdown } from '@/components/Dropdown/Dropdown'
+import { ButtonsLayout } from '@/components/Layouts/ButtonsLayout'
 import { MainLayout } from '@/components/Layouts/MainLayout'
+import { Table } from '@/components/Table/Table'
 
 import { ALL_EXCURSIONS } from '@/config/componentsData'
-import { ROUTES } from '@/config/routes'
 
-import { UsersTable } from './UsersTable/UsersTable'
+import { TableRow } from './UsersTable/TableRow'
 
 export const UsersPage = () => {
   const navigate = useNavigate()
@@ -34,28 +28,24 @@ export const UsersPage = () => {
           Вы на экскурсии “Экскурсия AVITO.TECH”
         </Typography>
 
-        <Stack
-          direction={'row'}
-          justifyContent={'space-between'}
-        >
-          <Stack
-            direction={'row'}
-            columnGap={'20px'}
-          >
+        <ButtonsLayout
+          left={[
             <Stack
+              key={1}
               direction={'row'}
               alignItems={'center'}
               columnGap={'12px'}
             >
               Показать только завершенных
               <Switch />
-            </Stack>
+            </Stack>,
             <Dropdown
+              key={2}
               label="Все экскурсии"
               values={ALL_EXCURSIONS}
-            />
-          </Stack>
-          <Stack>
+            />,
+          ]}
+          right={[
             <Button
               onClick={() => {}}
               variant="outlined"
@@ -68,11 +58,26 @@ export const UsersPage = () => {
               }
             >
               Удалить участников
-            </Button>
-          </Stack>
-        </Stack>
+            </Button>,
+          ]}
+        />
 
-        <UsersTable />
+        <Table
+          headers={[
+            'ID участника',
+            'Кол-во баллов',
+            'Пройдено заданий',
+            'Действия',
+          ]}
+          rows={[
+            <TableRow />,
+            <TableRow />,
+            <TableRow />,
+            <TableRow />,
+            <TableRow />,
+          ]}
+          endAlignRight
+        />
       </Stack>
     </MainLayout>
   )

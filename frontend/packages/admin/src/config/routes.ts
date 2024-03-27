@@ -1,16 +1,20 @@
 export const enum ROUTES {
-  Admins = '/admins',
-  TaskControl = '/tasks',
   BotNotifications = '/bot_notifications',
-  Achievements = '/achievements',
   Settings = '/settings',
   Login = '/login',
 
-  Users = '/users',
+  Achievements = '/achievements',
+  AchievementsCreate = '/achievements/create',
+  AchievementsUpdate = '/achievements/update',
 
+  Users = '/users',
+  UserHistory = '/users/history',
+
+  Admins = '/admins',
   AdminsCreate = '/admins/create',
   AdminsUpdate = '/admins/update',
 
+  TaskControl = '/tasks',
   TaskCreate = '/tasks/create',
   TaskUpdate = '/tasks/update',
 

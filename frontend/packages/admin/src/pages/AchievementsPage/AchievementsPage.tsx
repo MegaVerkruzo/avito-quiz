@@ -1,14 +1,16 @@
-import { Box, Button, IconButton, Stack, Typography } from '@mui/joy'
+import { Button, Stack, Typography } from '@mui/joy'
 import { PlusIcon, TrashIcon } from '@primer/octicons-react'
 import { useNavigate } from 'react-router-dom'
 
 import { Dropdown } from '@/components/Dropdown/Dropdown'
+import { ButtonsLayout } from '@/components/Layouts/ButtonsLayout'
 import { MainLayout } from '@/components/Layouts/MainLayout'
+import { Table } from '@/components/Table/Table'
 
 import { ALL_EXCURSIONS } from '@/config/componentsData'
 import { ROUTES } from '@/config/routes'
 
-import { AchievementsTable } from './AchievementsTable/AchievementsTable'
+import { TableRow } from './AchievementsTable/TableRow'
 
 export const AchievementsPage = () => {
   const navigate = useNavigate()
@@ -27,26 +29,22 @@ export const AchievementsPage = () => {
           Вы на экскурсии “Экскурсия AVITO.TECH”
         </Typography>
 
-        <Stack
-          direction={'row'}
-          justifyContent={'space-between'}
-        >
-          <Stack
-            direction={'row'}
-            columnGap={'12px'}
-          >
+        <ButtonsLayout
+          left={[
             <Button
+              key={1}
               startDecorator={<PlusIcon size={16} />}
               onClick={() => navigate(ROUTES.AdminsCreate)}
             >
               Добавить ачивку
-            </Button>
+            </Button>,
             <Dropdown
+              key={2}
               label="Все экскурсии"
               values={ALL_EXCURSIONS}
-            />
-          </Stack>
-          <Stack>
+            />,
+          ]}
+          right={[
             <Button
               onClick={() => {}}
               variant="outlined"
@@ -59,11 +57,15 @@ export const AchievementsPage = () => {
               }
             >
               Удалить все
-            </Button>
-          </Stack>
-        </Stack>
+            </Button>,
+          ]}
+        />
 
-        <AchievementsTable />
+        <Table
+          headers={['Название', 'Баллы', 'Картинка', 'Действия']}
+          rows={[<TableRow />, <TableRow />, <TableRow />, <TableRow />]}
+          endAlignRight
+        />
       </Stack>
     </MainLayout>
   )

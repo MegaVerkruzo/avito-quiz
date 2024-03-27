@@ -21,10 +21,8 @@ a {
   text-decoration: none;
 }
 
-th {
-  border: none !important;
+table.end_align_right_table th:last-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
-/* 
-tr:last-child td {
-  border: none !important;
-} */

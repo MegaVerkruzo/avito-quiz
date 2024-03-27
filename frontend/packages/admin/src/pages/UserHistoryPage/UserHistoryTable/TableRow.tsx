@@ -4,29 +4,16 @@ import { HistoryIcon, TrashIcon } from '@primer/octicons-react'
 export const TableRow = () => {
   return (
     <tr>
-      <td>232332323232</td>
-      <td>120</td>
-
-      <td>15/20</td>
+      <td>1</td>
       <td>
-        <Stack
-          direction={'row'}
-          sx={{ width: '100%' }}
-          justifyContent={'flex-end'}
-        >
-          <Stack direction={'row'}>
-            <IconButton>
-              <HistoryIcon size={16} />
-            </IconButton>
-            <IconButton>
-              <TrashIcon
-                size={16}
-                fill="var(--danger-color)"
-              />
-            </IconButton>
-          </Stack>
-        </Stack>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat
+        nostrum qui totam reprehenderit autem quibusdam officia dolorem saepe,
+        mollitia sit
       </td>
+
+      <td>3</td>
+      <td>10</td>
+      <td>9:57:32</td>
     </tr>
   )
 }

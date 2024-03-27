@@ -3,10 +3,11 @@ import { PlusIcon } from '@primer/octicons-react'
 import { useNavigate } from 'react-router-dom'
 
 import { MainLayout } from '@/components/Layouts/MainLayout'
+import { Table } from '@/components/Table/Table'
 
 import { ROUTES } from '@/config/routes'
 
-import { AdminTable } from './AdminsTable/AdminTable'
+import { TableRow } from './AdminsTable/TableRow'
 
 export const AdminsPage = () => {
   const navigate = useNavigate()
@@ -29,7 +30,12 @@ export const AdminsPage = () => {
             Добавить администратора
           </Button>
         </Box>
-        <AdminTable />
+
+        <Table
+          headers={['Логин администратора', 'Действия']}
+          rows={[<TableRow />, <TableRow />, <TableRow />, <TableRow />]}
+          endAlignRight
+        />
       </Stack>
     </MainLayout>
   )

@@ -3,7 +3,9 @@ import { PlusIcon, TrashIcon } from '@primer/octicons-react'
 import { useNavigate } from 'react-router-dom'
 
 import { Dropdown } from '@/components/Dropdown/Dropdown'
+import { ButtonsLayout } from '@/components/Layouts/ButtonsLayout'
 import { MainLayout } from '@/components/Layouts/MainLayout'
+import { Table } from '@/components/Table/Table'
 
 import {
   ALL_EXCURSIONS,
@@ -11,7 +13,7 @@ import {
 } from '@/config/componentsData'
 import { ROUTES } from '@/config/routes'
 
-import { TaskTable } from './TaskTable/TaskTable'
+import { TableRow } from './TaskTable/TableRow'
 
 export const TaskControlPage = () => {
   const navigate = useNavigate()
@@ -30,30 +32,27 @@ export const TaskControlPage = () => {
           Вы на экскурсии “Экскурсия AVITO.TECH”
         </Typography>
 
-        <Stack
-          direction={'row'}
-          justifyContent={'space-between'}
-        >
-          <Stack
-            direction={'row'}
-            columnGap={'12px'}
-          >
+        <ButtonsLayout
+          left={[
             <Button
+              key={1}
               startDecorator={<PlusIcon size={16} />}
               onClick={() => navigate(ROUTES.AdminsCreate)}
             >
               Добавить ачивку
-            </Button>
+            </Button>,
             <Dropdown
+              key={2}
               label="Управление экскурсией"
               values={EXCURSION_CONTROL_VALUES}
-            />
+            />,
             <Dropdown
+              key={3}
               label="Все экскурсии"
               values={ALL_EXCURSIONS}
-            />
-          </Stack>
-          <Stack>
+            />,
+          ]}
+          right={[
             <Button
               onClick={() => {}}
               variant="outlined"
@@ -66,11 +65,31 @@ export const TaskControlPage = () => {
               }
             >
               Удалить все
-            </Button>
-          </Stack>
-        </Stack>
+            </Button>,
+          ]}
+        />
 
-        <TaskTable />
+        <Table
+          headers={[
+            '№ задания',
+            'Видимость',
+            'Задание',
+            'Локация',
+            'Картинка',
+            'Действия',
+          ]}
+          rows={[
+            <TableRow />,
+            <TableRow />,
+            <TableRow />,
+            <TableRow />,
+            <TableRow />,
+            <TableRow />,
+            <TableRow />,
+          ]}
+          firstEmptyHeader
+          endAlignRight
+        />
       </Stack>
     </MainLayout>
   )
