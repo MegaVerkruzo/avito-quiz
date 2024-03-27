@@ -1,21 +1,21 @@
 import { Box, Typography } from '@mui/joy'
 
-import { Container } from '@/components/Containers/Container'
 import { MainLayout } from '@/components/Layouts/MainLayout'
+
+import { PinCode } from './PinCode'
 
 export const SettingsPage = () => {
   return (
     <MainLayout>
-      <Container>
-        <Box>
-          <Typography
-            level="h1"
-            sx={{ mb: '20px' }}
-          >
-            Настройки
-          </Typography>
-        </Box>
-      </Container>
+      <Typography
+        level="h1"
+        sx={{ mb: '20px' }}
+      >
+        Настройки
+      </Typography>
+      <Box sx={{ maxWidth: '200px' }}>
+        <PinCode />
+      </Box>
     </MainLayout>
   )
 }

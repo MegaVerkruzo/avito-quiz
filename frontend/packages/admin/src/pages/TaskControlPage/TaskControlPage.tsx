@@ -1,28 +1,77 @@
-import { Box, Typography } from '@mui/joy'
+import { Button, Stack, Typography } from '@mui/joy'
+import { PlusIcon, TrashIcon } from '@primer/octicons-react'
+import { useNavigate } from 'react-router-dom'
 
-import { CenterContainer } from '@/components/Containers/CenterContainer'
-import { Container } from '@/components/Containers/Container'
-import { EmptyExcursion } from '@/components/EmptyExcursion/EmptyExcursion'
-import { CreateExcursionForm } from '@/components/Forms/CreateExcursionForm'
+import { Dropdown } from '@/components/Dropdown/Dropdown'
 import { MainLayout } from '@/components/Layouts/MainLayout'
 
+import {
+  ALL_EXCURSIONS,
+  EXCURSION_CONTROL_VALUES,
+} from '@/config/componentsData'
+import { ROUTES } from '@/config/routes'
+
+import { TaskTable } from './TaskTable/TaskTable'
+
 export const TaskControlPage = () => {
+  const navigate = useNavigate()
+
   return (
     <MainLayout>
-      <Container>
-        <Box sx={{ height: '100%' }}>
-          <Typography
-            level="h1"
-            sx={{ mb: '20px' }}
+      <Typography
+        level="h1"
+        sx={{ mb: '20px' }}
+      >
+        Управление заданиями
+      </Typography>
+
+      <Stack rowGap={'15px'}>
+        <Typography sx={{ mb: '20px' }}>
+          Вы на экскурсии “Экскурсия AVITO.TECH”
+        </Typography>
+
+        <Stack
+          direction={'row'}
+          justifyContent={'space-between'}
+        >
+          <Stack
+            direction={'row'}
+            columnGap={'12px'}
           >
-            Управление заданиями
-          </Typography>
-          <CenterContainer>
-            {/* <EmptyExcursion /> */}
-            <CreateExcursionForm />
-          </CenterContainer>
-        </Box>
-      </Container>
+            <Button
+              startDecorator={<PlusIcon size={16} />}
+              onClick={() => navigate(ROUTES.AdminsCreate)}
+            >
+              Добавить ачивку
+            </Button>
+            <Dropdown
+              label="Управление экскурсией"
+              values={EXCURSION_CONTROL_VALUES}
+            />
+            <Dropdown
+              label="Все экскурсии"
+              values={ALL_EXCURSIONS}
+            />
+          </Stack>
+          <Stack>
+            <Button
+              onClick={() => {}}
+              variant="outlined"
+              color="danger"
+              startDecorator={
+                <TrashIcon
+                  size={16}
+                  fill="var(--danger-color)"
+                />
+              }
+            >
+              Удалить все
+            </Button>
+          </Stack>
+        </Stack>
+
+        <TaskTable />
+      </Stack>
     </MainLayout>
   )
 }

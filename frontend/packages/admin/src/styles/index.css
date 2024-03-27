@@ -20,3 +20,11 @@ body {
 a {
   text-decoration: none;
 }
+
+th {
+  border: none !important;
+}
+/* 
+tr:last-child td {
+  border: none !important;
+} */

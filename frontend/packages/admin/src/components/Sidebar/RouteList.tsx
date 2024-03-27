@@ -35,7 +35,7 @@ const routes = [
     icon: <BellIcon size={16} />,
   },
   {
-    path: ROUTES.Participants,
+    path: ROUTES.Users,
     text: 'Участники',
     icon: <PeopleIcon size={16} />,
   },
@@ -78,7 +78,7 @@ export const RouteList = () => {
           >
             <ListItem
               sx={
-                pathname === route.path
+                pathname.startsWith(route.path)
                   ? { background: 'var(--active-tab)' }
                   : {}
               }

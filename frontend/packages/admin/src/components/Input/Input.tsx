@@ -2,31 +2,52 @@ import {
   Box,
   InputTypeMap,
   Input as MUIInput,
-  TextField,
+  Textarea,
+  TextareaTypeMap,
   Typography,
 } from '@mui/joy'
 
+import { InputError } from '../InputError/InputError'
+
 type InputProps = {
   label?: string
-  labelStyle?: 'bold'
+  labelStyle?: 'normal' | 'bold'
+  textArea?: boolean
   isNumber?: boolean
-} & InputTypeMap<object, 'div'>['props']
+  textError?: string
+} & InputTypeMap<object, 'div'>['props'] &
+  TextareaTypeMap<object, 'div'>['props']
 
-export const Input = ({ label, isNumber = false, ...props }: InputProps) => {
+export const Input = ({
+  label,
+  labelStyle = 'normal',
+  textArea = false,
+  isNumber = false,
+  textError,
+  ...props
+}: InputProps) => {
   return (
     <Box>
       {label && (
         <Typography
-          fontWeight={'bold'}
+          fontWeight={labelStyle}
           sx={{ mb: '5px' }}
         >
           {label}
         </Typography>
       )}
-      <MUIInput
-        {...props}
-        sx={{ width: '100%', background: 'transparent', boxShadow: 'none' }}
-      />
+      {textArea ? (
+        <Textarea
+          {...props}
+          sx={{ width: '100%', background: 'transparent', boxShadow: 'none' }}
+        />
+      ) : (
+        <MUIInput
+          {...props}
+          sx={{ width: '100%', background: 'transparent', boxShadow: 'none' }}
+        />
+      )}
+      {textError && <InputError text={textError} />}
     </Box>
   )
 }

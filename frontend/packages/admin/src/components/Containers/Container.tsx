@@ -1,7 +1,7 @@
 import { Box } from '@mui/joy'
-import { FC } from 'react'
+import type { ReactNode } from 'react'
 
-export const Container: FC<{ children: React.ReactNode }> = ({ children }) => {
+export const Container = ({ children }: { children: ReactNode }) => {
   return (
     <Box
       sx={{

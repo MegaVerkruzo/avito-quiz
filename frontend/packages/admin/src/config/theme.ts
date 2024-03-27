@@ -10,8 +10,8 @@ export const theme = extendTheme({
           700: '#0389cb',
         },
         danger: {
-          
-        }
+          500: '#cf212e',
+        },
       },
     },
   },
@@ -22,6 +22,13 @@ export const theme = extendTheme({
         checkbox: {
           borderRadius: '50%',
           padding: '10px',
+        },
+      },
+    },
+    JoySelect: {
+      styleOverrides: {
+        button: {
+          opacity: 1,
         },
       },
     },

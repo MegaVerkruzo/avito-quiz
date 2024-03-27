@@ -2,7 +2,15 @@ import { Button, Sheet, Stack, Typography } from '@mui/joy'
 
 import { Input } from '../Input/Input'
 
-export const CreateExcursionForm = () => {
+export const CreateExcursionForm = ({
+  excursionId,
+  excursionTitle,
+  isCreate = true,
+}: {
+  excursionId?: string
+  excursionTitle?: string
+  isCreate?: boolean
+}) => {
   return (
     <Sheet
       sx={{
@@ -14,7 +22,10 @@ export const CreateExcursionForm = () => {
       <Stack rowGap={'40px'}>
         <Typography level="h3">Введите название экскурсии</Typography>
         <Stack rowGap={'20px'}>
-          <Input placeholder="Например: Экскурсия AVITO.TECH" />
+          <Input
+            placeholder="Например: Экскурсия AVITO.TECH"
+            value={excursionTitle}
+          />
           <Button>Создать</Button>
         </Stack>
       </Stack>

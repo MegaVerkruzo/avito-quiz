@@ -1,12 +1,4 @@
-import {
-  Box,
-  Divider,
-  GlobalStyles,
-  IconButton,
-  Sheet,
-  Stack,
-  Typography,
-} from '@mui/joy'
+import { Box, Divider, IconButton, Sheet, Stack, Typography } from '@mui/joy'
 import { SignOutIcon } from '@primer/octicons-react'
 
 import { Logo } from '@/assets/svgs/Logo'

@@ -1,22 +1,15 @@
-import { Box, Sheet } from '@mui/joy'
-import { FC } from 'react'
+import { Box } from '@mui/joy'
+import type { ReactNode } from 'react'
 
-import { Sidebar } from '../Sidebar/Sidebar'
+import { Container } from '../Containers/Container'
+import { SidebarLayout } from './SidebarLayout'
 
-export const MainLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
+export const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <Box sx={{ display: 'flex', minHeight: '100vh' }}>
-      <Sidebar />
-      <Sheet
-        component="main"
-        sx={{
-          width: '100%',
-          py: '60px',
-          background: 'var(--bg-color)',
-        }}
-      >
-        {children}
-      </Sheet>
-    </Box>
+    <SidebarLayout>
+      <Container>
+        <Box sx={{ height: '100%' }}>{children}</Box>
+      </Container>
+    </SidebarLayout>
   )
 }

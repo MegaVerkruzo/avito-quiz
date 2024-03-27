@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import { getAccessToken } from '@/utils/login'
+
 import { API_URL } from '../config/constants'
 
 interface BaseApiRequestOptions {
@@ -13,19 +15,16 @@ export const baseApiRequest = async <T>({
   method,
   data,
 }: BaseApiRequestOptions): Promise<T> => {
-  // TODO: get tg params
-  const signature = ''
-
   const headers: Record<string, string> = {
-    Authorization: signature,
+    Authorization: getAccessToken() || '',
   }
 
   const apiUrl = `${API_URL}${url}`
   const response = await axios({
     method,
     url: apiUrl,
-    data,
     headers,
+    data,
   })
 
   return response.data

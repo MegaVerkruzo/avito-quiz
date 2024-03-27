@@ -7,6 +7,8 @@ import { NoQuizPage } from '@/pages/NoQuizPage/NoQuizPage'
 import { TestPage } from '@/pages/TestPage/TestPage'
 import { TextfieldTaskPage } from '@/pages/TextfieldTaskPage/TextfieldTaskPage'
 
+import { ROUTES } from '@/config/routes'
+
 import App from '../App/App'
 
 const router = createBrowserRouter([
@@ -14,14 +16,14 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
-      { path: '/', element: <TestPage /> },
-      { path: '/pinCodePage', element: <TestPage /> },
-      { path: '/entryPage', element: <EntryPage /> },
-      { path: '/beforeTaskPage', element: <TestPage /> },
-      { path: '/textFieldTaskPage', element: <TextfieldTaskPage /> },
-      { path: '/buttonsTaskPage', element: <ButtonsTaskPage /> },
-      { path: '/finishPage', element: <FinishPage /> },
-      { path: '/noQuizPage', element: <NoQuizPage /> },
+      { path: ROUTES.Main, element: <TestPage /> },
+      { path: ROUTES.PinCodePage, element: <TestPage /> },
+      { path: ROUTES.EntryPage, element: <EntryPage /> },
+      { path: ROUTES.BeforeTaskPage, element: <TestPage /> },
+      { path: ROUTES.TextFieldTaskPage, element: <TextfieldTaskPage /> },
+      { path: ROUTES.ButtonsTaskPage, element: <ButtonsTaskPage /> },
+      { path: ROUTES.FinishPage, element: <FinishPage /> },
+      { path: ROUTES.NoQuizPage, element: <NoQuizPage /> },
     ],
   },
   {
