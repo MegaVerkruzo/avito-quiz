@@ -10,8 +10,10 @@ import type { ReactNode } from 'react'
 
 type SelectProps<T extends string> = {
   label?: string
+  labelPosition?: 'top' | 'inline'
   values: SelectValues<T>
   currentValue?: T
+  defaultValue?: T
   onChange?: (s: T) => void
 }
 
@@ -26,12 +28,17 @@ type SelectValues<T extends string> = {
 
 export const Select = <T extends string>({
   label,
+  labelPosition = 'inline',
+  defaultValue,
   values,
   onChange,
   currentValue,
 }: SelectProps<T>) => {
   return (
     <Box>
+      {label && labelPosition && (
+        <Typography sx={{ mb: '5px' }}>{label}</Typography>
+      )}
       <MUISelect
         sx={{
           width: '100%',
@@ -45,6 +52,7 @@ export const Select = <T extends string>({
           },
         }}
         placeholder={label}
+        defaultValue={defaultValue}
         value={currentValue}
         onChange={(_, newValue) => {
           newValue && onChange && onChange(newValue)

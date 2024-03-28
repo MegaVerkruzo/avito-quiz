@@ -1,6 +1,3 @@
-import { IconButton, Stack } from '@mui/joy'
-import { HistoryIcon, TrashIcon } from '@primer/octicons-react'
-
 export const TableRow = () => {
   return (
     <tr>

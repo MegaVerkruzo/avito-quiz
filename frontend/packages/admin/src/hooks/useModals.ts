@@ -18,7 +18,7 @@ export const useOpenModal = () => {
         replace: shouldReplace,
       })
     },
-    [location],
+    [location.pathname, location.search, navigate],
   )
   return { openModal }
 }

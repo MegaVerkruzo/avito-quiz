@@ -34,7 +34,7 @@ export const AchievementsPage = () => {
             <Button
               key={1}
               startDecorator={<PlusIcon size={16} />}
-              onClick={() => navigate(ROUTES.AdminsCreate)}
+              onClick={() => navigate(ROUTES.AchievementsCreate)}
             >
               Добавить ачивку
             </Button>,

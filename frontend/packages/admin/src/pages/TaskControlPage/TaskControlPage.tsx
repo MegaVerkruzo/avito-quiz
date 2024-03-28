@@ -37,9 +37,9 @@ export const TaskControlPage = () => {
             <Button
               key={1}
               startDecorator={<PlusIcon size={16} />}
-              onClick={() => navigate(ROUTES.AdminsCreate)}
+              onClick={() => navigate(ROUTES.TaskCreate)}
             >
-              Добавить ачивку
+              Добавить задание
             </Button>,
             <Dropdown
               key={2}

@@ -1,13 +1,22 @@
 import { Box, Input, Stack, Typography } from '@mui/joy'
 import { InfoIcon, UploadIcon } from '@primer/octicons-react'
 
-export const UploadImage = () => {
+type UploadImageProps = {
+  label?: string
+}
+
+export const UploadImage = ({ label }: UploadImageProps) => {
   return (
     <Stack rowGap={'15px'}>
-      <Input
-        placeholder="Загрузить картинку"
-        endDecorator={<UploadIcon size={16} />}
-      />
+      <Box>
+        {label && <Typography sx={{ mb: '5px' }}>{label}</Typography>}
+        <Input
+          readOnly
+          placeholder="Загрузить картинку"
+          endDecorator={<UploadIcon size={16} />}
+          sx={{ background: 'transparent' }}
+        />
+      </Box>
       <Stack
         direction={'row'}
         columnGap={'10px'}

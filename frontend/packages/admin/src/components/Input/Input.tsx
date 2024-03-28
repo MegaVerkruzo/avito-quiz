@@ -38,6 +38,7 @@ export const Input = ({
       )}
       {textArea ? (
         <Textarea
+          minRows={6}
           {...props}
           sx={{ width: '100%', background: 'transparent', boxShadow: 'none' }}
         />

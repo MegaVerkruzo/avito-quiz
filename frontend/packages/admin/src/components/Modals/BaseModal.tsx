@@ -1,10 +1,4 @@
-import {
-  DialogContent,
-  DialogTitle,
-  Modal,
-  ModalClose,
-  ModalDialog,
-} from '@mui/joy'
+import { DialogContent, DialogTitle, Modal, ModalDialog } from '@mui/joy'
 
 export const BaseModal = ({
   children,
